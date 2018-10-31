@@ -3,19 +3,31 @@
 var ClapEmojiGenerator = {
 
     start: function start() {
+        var claps = ['👏', '👏🏻', '👏🏼', '👏🏽', '👏🏾', '👏🏿'];
         var your_text = document.getElementById("your_text");
+        var multicultural = document.getElementById("clap_multicultural_checkbox");
         var clap_emoji_text = document.getElementById("clap_emoji_text");
         var tweet_it = document.querySelector(".tweet_it");
 
+        function standard(text) {
+            return text.value.replace(/\s/g, " 👏 ");
+        }
+
+        function multi(text) {
+            return text.value.split(/\s/).reduce(function(a,c,i){
+                return ( a === "" ? "" :  a + " " + claps[i % claps.length] + " ") + c;
+            }, "");
+        }
+
         ["keypress", "paste", "input"].forEach(function(event) {
-            your_text.addEventListener(event, function() {
+            document.addEventListener(event, function() {
 
                 your_text.value = your_text.value.replace(/\s/gi, " ");
 
                 tweet_it.classList.remove("show_tweet_button");
 
                 setTimeout(function() {
-                    clap_emoji_text.value = your_text.value.replace(/\s/gi, " 👏 ");
+                    clap_emoji_text.value = multicultural.checked ? multi(your_text) : standard(your_text);
                 }, 100);
 
             }, false);

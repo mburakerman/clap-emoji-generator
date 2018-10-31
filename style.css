@@ -85,7 +85,6 @@ h1 a {
     display: -ms-flexbox;
     display: flex;
     max-width: 750px;
-    height: 300px;
     padding: 10px 10px;
     margin: 0 auto;
 }
@@ -138,6 +137,11 @@ h1 a {
 
 #clap_emoji_text_container {
     position: relative;
+}
+
+#clap_multicultural_container {
+    text-align: center;
+    clear: both;
 }
 
 .tweet_it {
