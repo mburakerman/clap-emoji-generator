@@ -23,10 +23,17 @@ html {
 
 body {
     font-family: 'Varela Round', sans-serif;
-    padding: 5px;
+    padding: 10px;
 }
 
-.page_wrapper {
+::selection {
+    background: #d7c6cf;
+}
+::-moz-selection {
+    background: #d7c6cf;
+}
+
+.page-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -34,19 +41,10 @@ body {
     align-items: center;
     height: 100%;
 }
-
-.page_container {
+.page-container {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-}
-
-::selection {
-    background: #d7c6cf;
-}
-
-::-moz-selection {
-    background: #d7c6cf;
 }
 
 h1 {
@@ -56,6 +54,10 @@ h1 {
     text-align: center;
     font-size: 38px;
     margin-bottom: 15px;
+}
+p {
+    color: #717f86;
+    font-size: 16px;
 }
 
 h1 a {
@@ -70,9 +72,9 @@ h1 a {
     }
 }
 
-.desc {
+.page-container > p {
     color: #717f86;
-    font-size: 15px;
+    font-size: 16px;
     max-width: 400px;
     text-align: center;
     margin-left: auto;
@@ -80,13 +82,12 @@ h1 a {
     margin-bottom: 75px;
 }
 
-.wrapper {
+.textarea-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     max-width: 750px;
     height: 300px;
-    padding: 10px 10px;
     margin: 0 auto;
 }
 
@@ -94,7 +95,6 @@ h1 a {
     width: 100%;
     height: 300px;
 }
-
 .container:first-child {
     margin-right: 25px;
 }
@@ -104,20 +104,19 @@ h1 a {
     height: 300px;
     padding: 10px 10px;
     color: #444;
-    font-size: 15px;
+    font-size: 16px;
     background: rgba(255, 255, 255, .2);
     border: 1px solid rgba(215, 198, 207, .75);
     border-radius: 4px;
     outline: none;
     resize: none;
 }
-
 .textarea:focus {
     border: 1px solid rgba(215, 198, 207, 1);
 }
 
 @media screen and (max-width: 650px) {
-    .wrapper {
+    .textarea-wrapper {
         flex-direction: column;
         height: 625px;
     }
@@ -128,7 +127,7 @@ h1 a {
         margin-right: 0px;
         margin-bottom: 25px;
     }
-    .page_wrapper {
+    .page-wrapper {
         display: block;
     }
     h1 {
@@ -140,7 +139,7 @@ h1 a {
     position: relative;
 }
 
-.tweet_it {
+.tweet-button {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -5px);
@@ -161,22 +160,28 @@ h1 a {
     opacity: 0;
     visibility: hidden;
 }
-
-.tweet_it:hover {
+.tweet-button :hover {
     background: rgba(29, 161, 242, .75);
 }
-
-.tweet_it svg {
+.tweet-button  svg {
     width: 16px;
     height: 16px;
     position: relative;
     top: 3px;
 }
-
-.show_tweet_button {
+.tweet-button.active {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0px);
+}
+
+.multicultural{
+    margin: 20px auto;
+    text-align:center;
+}
+.multicultural .switch{
+    margin: 5px auto;
+    text-align:center;
 }
 
 footer {
@@ -195,3 +200,53 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+
+/* switch css */
+.switch {
+    width: 50px;
+    height: 30px;
+  }
+  .switch .switch__label {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+  }
+  .switch .switch__label input {
+    display: none;
+  }
+  .switch .switch__label .switch__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    transition: 0.3s;
+    border: 2px solid #ebebeb;
+    border-radius: 34px;
+  }
+  .switch .switch__label .switch__slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #ebebeb;
+    transition: 0.3s;
+    border-radius: 100%;
+  }
+  input:checked + .switch__slider {
+    background-color: #d7c6cf !important;
+    border: 2px solid transparent !important;
+  }
+  input:checked + .switch__slider:before {
+    background-color: #fff !important;
+  }
+  input:checked + .switch__slider:before {
+    transform: translateX(22px);
+  }
+  
