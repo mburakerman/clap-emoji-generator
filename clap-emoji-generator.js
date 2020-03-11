@@ -41,7 +41,8 @@ var ClapEmojiGenerator = {
             // sliced -5 because it's clap emoji and js thinks it is 5 character long
             output = output.slice(0, -5);
             return output;
-        }*/
+        }
+        */
 
         // clicpboard
         function copyToClipboard() {
