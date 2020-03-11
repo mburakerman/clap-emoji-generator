@@ -32,6 +32,17 @@ var ClapEmojiGenerator = {
                 return (a === "" ? "" : a + " " + claps[i % claps.length] + " ") + c;
             }, "");
         }
+        /*
+        function multiculturalOutputAlternative(text) {
+            var output = "";
+            text.value.trim().split(/\s/).forEach(function (item, index) {
+                output += (item + " " + claps[index % claps.length] + " ");
+            });
+            // sliced -5 because it's clap emoji and js thinks it is 5 character long
+            output = output.slice(0, -5);
+            return output;
+        }
+        */
 
         // clicpboard
         function copyToClipboard() {
