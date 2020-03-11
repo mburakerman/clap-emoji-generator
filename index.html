@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <title>Clap Emoji Generator</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="shortcut icon"
-        href="data:image/png;base64,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">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <meta property="og:title" content="Clap Emoji Generator" />
     <meta property="og:description"
         content="Don't 👏 stop 👏 emphasizing 👏 your 👏 point 👏 by 👏 putting 👏 clap 👏 emojis 👏 after 👏 every 👏 word" />
+    <meta property="og:url" content="https://mburakerman.github.io/clap-emoji-generator/">
     <meta property="og:type" content="website" />
+
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
@@ -24,11 +25,9 @@
     <meta name="twitter:description"
         content="Don't 👏 stop 👏 emphasizing 👏 your 👏 point 👏 by 👏 putting 👏 clap 👏 emojis 👏 after 👏 every 👏 word" />
     <!-- Twitter -->
-
 </head>
 
 <body>
-
 
     <a href="https://github.com/mburakerman/clap-emoji-generator/" target="_blank" class="github-corner"
         aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
@@ -75,26 +74,42 @@
         }
     </style>
 
-    <div class="page_wrapper">
-        <div class="page_container">
+    <div class="page-wrapper">
+
+        <div class="page-container">
             <h1><a href="https://mburakerman.github.io/clap-emoji-generator/">CLAP 👏 EMOJI 👏 GENERATOR</a></h1>
-            <p class="desc">Don't 👏 stop 👏 emphasizing 👏 your 👏 point 👏 by 👏 putting 👏 clap 👏 emojis 👏 after 👏
+            <p>Don't 👏 stop 👏 emphasizing 👏 your 👏 point 👏 by 👏 putting 👏 clap 👏 emojis 👏 after 👏
                 every 👏 word</p>
-            <div class="wrapper">
+
+            <div class="textarea-wrapper">
                 <div class="container">
-                    <textarea class="textarea" id="your_text" placeholder="Type or paste your text here..."></textarea>
+                    <textarea class="textarea" id="userTextarea"
+                        placeholder="Type or paste your text here..."></textarea>
                 </div>
+
                 <div class="container" id="clap_emoji_text_container">
-                    <textarea class="textarea" id="clap_emoji_text" readonly></textarea>
-                    <a href="#!" target="_blank" class="tweet_it">
+                    <textarea class="textarea" id="clapEmojiTextarea" readonly></textarea>
+                    <a href="javascript:;" target="_blank" class="tweet-button" id="tweetButton">
                         <svg viewBox="0 0 512 512">
                             <rect fill="transparent" height="512" rx="15%" width="512" />
                             <path
                                 d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z"
                                 fill="#fff" />
-                        </svg> Tweet it</a>
+                        </svg> Tweet
+                    </a>
                 </div>
             </div>
+
+            <div class="multicultural">
+                <p>Multicultural Clap</p>
+                <div class="switch">
+                    <label class="switch__label"><input type="checkbox" id="multiculturalCheckbox" />
+                        <div class="switch__slider"></div>
+                    </label>
+                </div>
+            </div>
+
+
             <footer>
                 <p>&copy; Made with &hearts; by <a href="https://twitter.com/mburakerman/" target="_blank"
                         rel="external">@mburakerman</a></p>
@@ -103,8 +118,7 @@
     </div>
 
 
-
-    <script src="clap-emoji-generator.js"></script>
+    <script defer src="clap-emoji-generator.js"></script>
 </body>
 
 </html>

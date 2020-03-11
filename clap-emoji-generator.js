@@ -2,45 +2,59 @@
 
 var ClapEmojiGenerator = {
 
-    start: function start() {
-        var your_text = document.getElementById("your_text");
-        var clap_emoji_text = document.getElementById("clap_emoji_text");
-        var tweet_it = document.querySelector(".tweet_it");
+    init: function start() {
+        var claps = ["👏", "👏🏻", "👏🏼", "👏🏽", "👏🏾", "👏🏿"];
+        var userTextarea = document.getElementById("userTextarea");
+        var clapEmojiTextarea = document.getElementById("clapEmojiTextarea");
+        var multiculturalCheckbox = document.getElementById("multiculturalCheckbox");
+        var tweetButton = document.getElementById("tweetButton");
 
+        // events
         ["keypress", "paste", "input"].forEach(function (event) {
-            your_text.addEventListener(event, function () {
+            document.addEventListener(event, function () {
 
-                your_text.value = your_text.value.replace(/\s/gi, " ");
-                tweet_it.classList.remove("show_tweet_button");
+                userTextarea.value = userTextarea.value.replace(/\s/gi, " ");
+                tweetButton.classList.remove("active");
 
                 setTimeout(function () {
-                    clap_emoji_text.value = your_text.value.replace(/\s/gi, " 👏 ");
+                    clapEmojiTextarea.value = multiculturalCheckbox.checked ? multiculturalOutput(userTextarea) : defaultOutput(userTextarea);
                 }, 100);
-
             }, false);
         });
 
+
+        // clapped texts
+        function defaultOutput(text) {
+            return text.value.replace(/\s/g, " 👏 ");
+        }
+        function multiculturalOutput(text) {
+            return text.value.split(/\s/).reduce(function (a, c, i) {
+                return (a === "" ? "" : a + " " + claps[i % claps.length] + " ") + c;
+            }, "");
+        }
+
+        // clicpboard
         function copyToClipboard() {
             var textField = document.createElement("textarea");
-            textField.innerText = document.querySelector("#clap_emoji_text").value;
+            textField.innerText = document.querySelector("#clapEmojiTextarea").value;
             document.body.appendChild(textField);
             textField.select();
             document.execCommand("copy");
             textField.remove();
 
-            if (clap_emoji_text.value.length > 0) {
-                tweet_it.classList.add("show_tweet_button");
+            if (clapEmojiTextarea.value.length > 0) {
+                tweetButton.classList.add("active");
             }
 
-            tweet_it.setAttribute("href", "https://twitter.com/share?url=https://mburakerman.github.io/clap-emoji-generator/&text=" + clap_emoji_text.value);
+            tweetButton.setAttribute("href", "https://twitter.com/share?url=https://mburakerman.github.io/clap-emoji-generator/&text=" + clapEmojiTextarea.value);
         }
 
-        clap_emoji_text.addEventListener("click", function () {
+        clapEmojiTextarea.addEventListener("click", function () {
             copyToClipboard();
             this.select();
         });
-
     }
 
 };
-ClapEmojiGenerator.start();
+
+ClapEmojiGenerator.init();
