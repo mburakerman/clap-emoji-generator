@@ -5,7 +5,7 @@
 <img src="https://media.giphy.com/media/l4FGtP9FCMcozmMfu/giphy.gif"/>
 
 ## Thanks 
-Added 👏🏻 multicultural 👏 🏼feature with 👏🏾 [@donatj](https://github.com/donatj)
+Added 👏🏻 multicultural 👏 feature with 👏🏾 [@donatj](https://github.com/donatj)
 
 ## License
 
